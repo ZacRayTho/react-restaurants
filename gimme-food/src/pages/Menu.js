@@ -1,12 +1,15 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import Food from "../components/Food";
-export default function Menu() {
+
+export default function Menu(props) {
+
+    const { cart, setCart } = props;
 
     const [food, setFood] = useState([])
     const [filter, setFilter] = useState("All")
+
 
     useEffect(
         function apiCall() {
@@ -35,15 +38,15 @@ export default function Menu() {
         default:
         case "All": active = food
             break;
-        case "Breakfast": active = food.filter((item) => item.category == "Breakfast")
+        case "Breakfast": active = food.filter((item) => item.category === "Breakfast")
             break;
-        case "Appetizer": active = food.filter((item) => item.category == "Appetizer")
+        case "Appetizer": active = food.filter((item) => item.category === "Appetizer")
             break;
-        case "Lunch": active = food.filter((item) => item.category == "Lunch")
+        case "Lunch": active = food.filter((item) => item.category === "Lunch")
             break;
-        case "Dinner": active = food.filter((item) => item.category == "Dinner")
+        case "Dinner": active = food.filter((item) => item.category === "Dinner")
             break;
-        case "Drink": active = food.filter((item) => item.category == "Drink")
+        case "Drink": active = food.filter((item) => item.category === "Drink")
             break;
     }
 
@@ -63,10 +66,10 @@ export default function Menu() {
                     <button className="btn btn-transparent" onClick={() => { handleClick("Drink") }}>Drink</button>
                 </div>
 
-                {active.map((item, index) => <Food item={item} key={index}></Food>)}
+                {active.map((item, index) => <Food cart={cart} setCart={setCart} item={item} key={index}></Food>)}
 
             </div>
-            
+
         </>
     )
 }

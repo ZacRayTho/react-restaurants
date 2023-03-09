@@ -1,11 +1,18 @@
 import Land from "./pages/Land";
 import Menu from "./pages/Menu"
-// import { useState } from "react"
+import { useState } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Checkout from "./pages/Checkout";
+import Cart from "./components/Cart";
 
 function App() {
+
+  const [cart, setCart] = useState([])
+
   return (
     <div className="App">
+      <Cart cart={cart} setCart={setCart}/>
+
       <Router>
         <Routes>
 
@@ -16,18 +23,18 @@ function App() {
 
           <Route path="/menu" element={
             <div className="">
-              <Menu />
+              <Menu cart={cart} setCart={setCart}/>
             </div>}></Route>
 
-          <Route path="/contact" element={<>
+          <Route path="/specials" element={<>
             <div className="">
               {/* insert page here */}
             </div>
           </>}></Route>
 
-          <Route path="/projects" element={
+          <Route path="/checkout" element={
             <div className="">
-              {/* insert page here */}
+              <Checkout />
             </div>}></Route>
 
         </Routes>

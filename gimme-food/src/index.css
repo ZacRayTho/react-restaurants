@@ -43,3 +43,14 @@ li {
 aside {
     float: right;
 }
+
+.card-title {
+    font-family: chalk;
+}
+
+#cartBtn {
+    position: fixed;
+    top: 50%; 
+    right: 0px;
+    z-index: 3;
+}

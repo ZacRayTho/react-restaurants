@@ -10,12 +10,11 @@ export default function Land() {
             <div className="mx-auto bg-white w-75">
                 <div className="row">
 
-                    <div className="col-auto text-center">
+                    <div className="col-12 text-center">
                         <h1 className="mb-3">Welcome to <b>Justin's</b>, Food so good its to sin for!</h1>
                         <h2>Wondering where you can get such delicious food? We're located at:</h2>
                         <h2>348 E Main St, Lexington, KY</h2>
-                    </div>
-                    <div className="col">
+                    
                         <h3>Open at:</h3>
 
                         <ul>
@@ -39,11 +38,11 @@ export default function Land() {
                     referrerPolicy="no-referrer-when-downgrade"
                     title="googleMaps"
                 /> */}
-                    <div className="col-6 mt-5 ">
+                    <div className="col-6 my-5 ">
                         <h4 className="text-center">Our founder, Justin, training an apprentice in our new Chef Bootcamp! Contact us for more info if you're interested!</h4>
                         <img className="d-flex mx-auto" src="./img/headChef.jpg" alt="master chef training apprentice"></img>
                     </div>
-                    <div className="col-6 mt-5">
+                    <div className="col-6 my-5">
                         <h4 className="text-center"> An average night at Justin's, place your reservations early!</h4>
                         <img className="d-flex mx-auto" src="./img/JustinBusyNight.jpg" alt="busy night at justin's"></img>
                     </div>

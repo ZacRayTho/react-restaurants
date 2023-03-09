@@ -1,4 +1,4 @@
-
+import CartItem from "./CartItem";
 export default function Cart(props) {
     const { cart, setCart } = props;
 
@@ -15,7 +15,7 @@ export default function Cart(props) {
                 </div>
                 <div className="offcanvas-body">
 
-                {cart.map((item, index) => <div key={index}>{item.title}{item.price}</div>)}
+                {cart.map((item, index) => <CartItem cart={cart} index={index} item={item} setCart={setCart} key={index} />)}
 
                 </div>
             </div>

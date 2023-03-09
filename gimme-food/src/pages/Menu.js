@@ -5,13 +5,15 @@ import Food from "../components/Food";
 
 export default function Menu(props) {
 
-    const { cart, setCart } = props;
+    const { cart, setCart, filter, setFilter } = props;
 
     const [food, setFood] = useState([])
-    const [filter, setFilter] = useState("All")
+    
 
 
     useEffect(
+        
+        
         function apiCall() {
             let options = {
                 baseURL: "https://www.jsonkeeper.com/b/MDXW",
@@ -28,6 +30,8 @@ export default function Menu(props) {
                 })
         }
         , [])
+
+
 
     function handleClick(category) {
         setFilter(category)

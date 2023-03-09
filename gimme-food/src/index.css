@@ -35,3 +35,11 @@ footer {
     font-family: chalk;
     src: url(./img/CfBlackboardPersonalRegular-AKPg.ttf);
 }
+
+li {
+    list-style-type: none;
+}
+
+aside {
+    float: right;
+}

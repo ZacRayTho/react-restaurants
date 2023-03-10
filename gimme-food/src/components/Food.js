@@ -1,9 +1,13 @@
+import { useEffect } from "react";
 export default function Food(props) {
     const { item, cart, setCart } = props
 
     function handleClick(title, price) {
-        setCart([...cart, {"title": title, "price": price}])
+        setCart([...cart, { "title": title, "price": price }])
     }
+
+    useEffect(() => {localStorage.setItem("cart", JSON.stringify(cart))}, [cart])
+
     let name = item.title;
     let money = item.price;
 

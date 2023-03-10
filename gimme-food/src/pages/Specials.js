@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import Nav from "../components/Nav"
 
 export default function Specials(props) {
 
-    const { food, setFood } = props;
+    const { food, setCart, cart } = props;
+
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart])
 
     let date = new Date();
     let cheap;
@@ -16,7 +21,7 @@ export default function Specials(props) {
                 let x = Math.random() * 100;
                 // console.log(x.floor)
                 if (Math.floor(x) > 0 && Math.floor(x) < 59) {
-                    console.log("if")
+                    // console.log("if")
                     rando = Math.floor(x);
                 }
             }
@@ -27,14 +32,15 @@ export default function Specials(props) {
 
             return (specials.includes(item.id))
         })
-        console.log(cheap)
+        // console.log(cheap)
         localStorage.setItem("specials", JSON.stringify(cheap))
-        console.log(cheap)
+        // console.log(cheap)
     }
 
     function newWeek() {
         if (localStorage.getItem("specials") !== null) {
-            if (date.getDay === 1) {
+            console.log(date.getDay())
+            if (date.getDay() === 1) {
                 random()
             }
             else {
@@ -49,7 +55,10 @@ export default function Specials(props) {
 
 
 
+    function handleClick(title, price) {
+        setCart([...cart, { "title": title, "price": price }]);
 
+    }
 
 
 
@@ -72,8 +81,13 @@ export default function Specials(props) {
                     </thead>
                     <tbody>
                         <tr>
-                            {cheap.map((item) => {
-                                return (<td>{item.title}<p className="text-decoration-line-through">{item.price}</p>{item.price - 2.00}</td>)
+                            {cheap.map((item, index) => {
+                                return (
+                                    <td key={index}>{item.title}
+                                        <p className="text-decoration-line-through">{item.price}</p>
+                                        {item.price - 2.00}
+                                        <button onClick={() => handleClick(item.title, item.price - 2)} className=" btn btn-transparent border">Add to Cart</button>
+                                    </td>)
 
                             })}
                         </tr>

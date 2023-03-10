@@ -31,8 +31,8 @@ function App() {
   function checkTime() {
     const time = new Date();
     const hour = time.getHours()
-    console.log("useEffect in app")
-    console.log(hour)
+    // console.log("useEffect in app")
+    // console.log(hour)
     switch (true) {
       case (hour < 10): setFilter("Breakfast")
         break;
@@ -45,10 +45,20 @@ function App() {
     }
 
   }
+
+  function localCart() {
+    if (localStorage.getItem("cart") === null) {
+      return;
+    }
+    else {
+      setCart(JSON.parse(localStorage.getItem("cart")));
+    }
+  }
   //this function checks time and sets filter state to appropriate filter (breakfast, Lunch, dinner)
   useEffect(() => {
     checkTime(); 
     apiCall();
+    localCart();
   }, [])
 
   return (
@@ -70,13 +80,13 @@ function App() {
 
           <Route path="/specials" element={<>
             <div className="">
-              <Specials food={food} setFood={setFood} />
+              <Specials food={food} setCart={setCart} cart={cart}/>
             </div>
           </>}></Route>
 
           <Route path="/checkout" element={
             <div className="">
-              <Checkout />
+              <Checkout cart={cart} setCart={setCart}/>
             </div>}></Route>
 
         </Routes>

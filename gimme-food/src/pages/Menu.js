@@ -34,13 +34,13 @@ export default function Menu(props) {
 
             <div className="container bg-img2 w-75 d-flex justify-content-center row mx-auto">
                 <h1 className="text-center m-1" style={{ fontSize: "100px", color: "white", fontFamily: "chalk" }}>Menu</h1>
-                <div className="text-center btn-group bg-white w-75">
-                    <button className="btn btn-transparent" onClick={() => { handleClick("All") }}>All</button>
-                    <button className="btn btn-transparent" onClick={() => { handleClick("Breakfast") }}>Breakfast</button>
-                    <button className="btn btn-transparent" onClick={() => { handleClick("Lunch") }}>Lunch</button>
-                    <button className="btn btn-transparent" onClick={() => { handleClick("Appetizer") }}>Appetizer</button>
-                    <button className="btn btn-transparent" onClick={() => { handleClick("Dinner") }}>Dinner</button>
-                    <button className="btn btn-transparent" onClick={() => { handleClick("Drink") }}>Drink</button>
+                <div className="text-center btn-group bg-white w-75 row">
+                    <button className="col-auto btn btn-transparent" onClick={() => { handleClick("All") }}>All</button>
+                    <button className="col-auto btn btn-transparent" onClick={() => { handleClick("Breakfast") }}>Breakfast</button>
+                    <button className="col-auto btn btn-transparent" onClick={() => { handleClick("Lunch") }}>Lunch</button>
+                    <button className="col-auto btn btn-transparent" onClick={() => { handleClick("Appetizer") }}>Appetizer</button>
+                    <button className="col-auto btn btn-transparent" onClick={() => { handleClick("Dinner") }}>Dinner</button>
+                    <button className="col-auto btn btn-transparent" onClick={() => { handleClick("Drink") }}>Drink</button>
                 </div>
 
                 {active.map((item, index) => <Food cart={cart} setCart={setCart} item={item} key={index}></Food>)}

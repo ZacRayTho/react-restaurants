@@ -1,7 +1,7 @@
 import Land from "./pages/Land";
 import Menu from "./pages/Menu"
 import { useEffect, useState } from "react"
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
 // import Checkout from "./pages/Checkout";
 import Cart from "./components/Cart";
 import Specials from "./pages/Specials";
@@ -70,27 +70,29 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<>
-            <div className="">
-              <Land />
-            </div></>}></Route>
-          <Route path="/menu" element={
-            <div className="">
-              <Menu cart={cart} setCart={setCart} filter={filter} setFilter={setFilter} food={food} />
-            </div>}></Route>
-          <Route path="/specials" element={<>
-            <div className="">
-              <Specials food={food} setCart={setCart} cart={cart} />
-            </div>
-          </>}></Route>
-          {/* <Route path="/checkout" element={
+      <BrowserRouter basename="/react-restaurants">
+        <Router>
+          <Routes>
+            <Route path="/" element={<>
+              <div className="">
+                <Land />
+              </div></>}></Route>
+            <Route path="/menu" element={
+              <div className="">
+                <Menu cart={cart} setCart={setCart} filter={filter} setFilter={setFilter} food={food} />
+              </div>}></Route>
+            <Route path="/specials" element={<>
+              <div className="">
+                <Specials food={food} setCart={setCart} cart={cart} />
+              </div>
+            </>}></Route>
+            {/* <Route path="/checkout" element={
             <div className="">
               <Checkout cart={cart} setCart={setCart} />
             </div>}></Route> */}
-        </Routes>
-      </Router>
+          </Routes>
+        </Router>
+      </BrowserRouter>
       <Cart cart={cart} setCart={setCart} />
     </div>
   );

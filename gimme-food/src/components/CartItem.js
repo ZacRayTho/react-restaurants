@@ -3,12 +3,6 @@ import { useEffect } from "react";
 export default function CartItem(props) {
     const {item, setCart, cart, index} = props;
     
-    useEffect(() => {
-        
-        localStorage.setItem("cart", JSON.stringify(cart))
-        
-    }, [cart])
-
     function handleClick() {
         let dupe = [...cart];
         // console.log(dupe)
@@ -16,6 +10,14 @@ export default function CartItem(props) {
         // console.log(dupe)
         setCart([ ...dupe ]) 
     }
+
+    useEffect(() => {
+        console.log("cart changed")
+        localStorage.setItem("cart", JSON.stringify(cart))
+        
+    }, [cart])
+
+    
 
     return(
         <>

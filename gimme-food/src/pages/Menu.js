@@ -4,14 +4,8 @@ import Food from "../components/Food";
 
 export default function Menu(props) {
 
-    const { cart, setCart, filter, setFilter, food, setFood } = props;
+    const { cart, setCart, filter, setFilter, food } = props;
    
-
-
-    
-
-
-
     function handleClick(category) {
         setFilter(category)
     }

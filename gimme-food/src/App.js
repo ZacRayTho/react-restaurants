@@ -56,7 +56,7 @@ function App() {
   }
   //this function checks time and sets filter state to appropriate filter (breakfast, Lunch, dinner)
   useEffect(() => {
-    checkTime(); 
+    checkTime();
     apiCall();
     localCart();
   }, [])
@@ -75,18 +75,18 @@ function App() {
 
           <Route path="/menu" element={
             <div className="">
-              <Menu cart={cart} setCart={setCart} filter={filter} setFilter={setFilter} food={food} setFood={setFood} />
+              <Menu cart={cart} setCart={setCart} filter={filter} setFilter={setFilter} food={food} />
             </div>}></Route>
 
           <Route path="/specials" element={<>
             <div className="">
-              <Specials food={food} setCart={setCart} cart={cart}/>
+              <Specials food={food} setCart={setCart} cart={cart} />
             </div>
           </>}></Route>
 
           <Route path="/checkout" element={
             <div className="">
-              <Checkout cart={cart} setCart={setCart}/>
+              <Checkout cart={cart} setCart={setCart} />
             </div>}></Route>
 
         </Routes>

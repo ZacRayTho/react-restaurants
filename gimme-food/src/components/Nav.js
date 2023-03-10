@@ -43,7 +43,6 @@ export default function Nav() {
                                         Checkout
                                     </button>
                                 </NavLink> 
-                                
                             </li>
                         </ul>
                     </div>

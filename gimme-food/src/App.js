@@ -1,7 +1,7 @@
 import Land from "./pages/Land";
 import Menu from "./pages/Menu"
 import { useEffect, useState } from "react"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 // import Checkout from "./pages/Checkout";
 import Cart from "./components/Cart";
 import Specials from "./pages/Specials";
@@ -70,7 +70,6 @@ function App() {
 
   return (
     <div className="App">
-      
       <Router>
         <Routes>
           <Route path="/" element={<>

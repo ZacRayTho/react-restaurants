@@ -6,6 +6,7 @@ export default function Specials(props) {
     const { food, setCart, cart } = props;
 
     useEffect(() => {
+        
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart])
 
@@ -39,7 +40,7 @@ export default function Specials(props) {
 
     function newWeek() {
         if (localStorage.getItem("specials") !== null) {
-            console.log(date.getDay())
+            // console.log(date.getDay())
             if (date.getDay() === 1) {
                 random()
             }
@@ -53,19 +54,13 @@ export default function Specials(props) {
     }
     newWeek()
 
-
-
     function handleClick(title, price) {
         setCart([...cart, { "title": title, "price": price }]);
-
     }
-
-
 
     return (
         <>
             <Nav />
-
             <div>
                 <h1 className="text-center bg-white">This Week Specials!</h1>
                 <table className="table bg-white">
@@ -87,14 +82,13 @@ export default function Specials(props) {
                                         <p className="text-decoration-line-through">{item.price}</p>
                                         {item.price - 2.00}
                                         <button onClick={() => handleClick(item.title, item.price - 2)} className=" btn btn-transparent border">Add to Cart</button>
-                                    </td>)
-
+                                    </td>
+                                )
                             })}
                         </tr>
                     </tbody>
                 </table>
             </div>
-
         </>
     )
 }

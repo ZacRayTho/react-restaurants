@@ -9,7 +9,7 @@ import axios from "axios";
 
 function App() {
   const [food, setFood] = useState([])
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")))
   const [filter, setFilter] = useState("All")
 
   function apiCall() {
@@ -47,13 +47,15 @@ function App() {
   }
 
   function localCart() {
-    if (localStorage.getItem("cart") === null) {
+    if (JSON.parse(localStorage.getItem("cart")).length === 0) {
       return;
     }
     else {
       setCart(JSON.parse(localStorage.getItem("cart")));
+      return;
     }
   }
+
   //this function checks time and sets filter state to appropriate filter (breakfast, Lunch, dinner)
   useEffect(() => {
     checkTime();
@@ -64,31 +66,25 @@ function App() {
   return (
     <div className="App">
       <Cart cart={cart} setCart={setCart} />
-
       <Router>
         <Routes>
-
           <Route path="/" element={<>
             <div className="">
               <Land />
             </div></>}></Route>
-
           <Route path="/menu" element={
             <div className="">
               <Menu cart={cart} setCart={setCart} filter={filter} setFilter={setFilter} food={food} />
             </div>}></Route>
-
           <Route path="/specials" element={<>
             <div className="">
               <Specials food={food} setCart={setCart} cart={cart} />
             </div>
           </>}></Route>
-
-          <Route path="/checkout" element={
+          {/* <Route path="/checkout" element={
             <div className="">
               <Checkout cart={cart} setCart={setCart} />
-            </div>}></Route>
-
+            </div>}></Route> */}
         </Routes>
       </Router>
     </div>

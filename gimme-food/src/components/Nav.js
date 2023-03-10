@@ -37,13 +37,13 @@ export default function Nav() {
                                     </button>
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <NavLink className={"text-decoration-none"} to="/checkout">
                                     <button className="nav-link active bg-transparent border-0 " aria-current="page" >
                                         Checkout
                                     </button>
                                 </NavLink> 
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>

@@ -1,11 +1,11 @@
 import Nav from "../components/Nav"
 import CartItem from "../components/CartItem";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 //bring cart info in
 export default function Checkout(props) {
     const { cart, setCart } = props;
 
-    useEffect(() => {localStorage.setItem("cart", JSON.stringify(cart))}, [cart])
+    // useEffect(() => {localStorage.setItem("cart", JSON.stringify(cart))}, [cart])
 
 
     return (

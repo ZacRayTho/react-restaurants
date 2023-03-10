@@ -9,7 +9,7 @@ import axios from "axios";
 
 function App() {
   const [food, setFood] = useState([])
-  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")))
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || [])
   const [filter, setFilter] = useState("All")
 
   function apiCall() {

@@ -47,7 +47,7 @@ function App() {
   }
 
   function localCart() {
-    if (JSON.parse(localStorage.getItem("cart")).length === 0) {
+    if (localStorage.getItem("cart") !== null || JSON.parse(localStorage.getItem("cart")).length === 0 ) {
       return;
     }
     else {

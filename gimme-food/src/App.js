@@ -2,7 +2,7 @@ import Land from "./pages/Land";
 import Menu from "./pages/Menu"
 import { useEffect, useState } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Checkout from "./pages/Checkout";
+// import Checkout from "./pages/Checkout";
 import Cart from "./components/Cart";
 import Specials from "./pages/Specials";
 import axios from "axios";
@@ -70,7 +70,7 @@ function App() {
 
   return (
     <div className="App">
-      <Cart cart={cart} setCart={setCart} />
+      
       <Router>
         <Routes>
           <Route path="/" element={<>
@@ -92,6 +92,7 @@ function App() {
             </div>}></Route> */}
         </Routes>
       </Router>
+      <Cart cart={cart} setCart={setCart} />
     </div>
   );
 }

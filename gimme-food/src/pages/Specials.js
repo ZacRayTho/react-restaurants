@@ -1,13 +1,13 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import Nav from "../components/Nav"
 
 export default function Specials(props) {
 
     const { food, setCart, cart } = props;
 
-    useEffect(() => {
-        localStorage.setItem("cart", JSON.stringify(cart));
-    }, [cart])
+    // useEffect(() => {
+    //     localStorage.setItem("cart", JSON.stringify(cart));
+    // }, [cart])
 
     let date = new Date();
     let cheap;

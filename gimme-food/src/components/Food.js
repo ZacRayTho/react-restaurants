@@ -8,7 +8,7 @@ export default function Food(props) {
     let money = item.price;
 
     return (
-        <div className="card col-6 bg-transparent border-0 text-white" >
+        <div className="card col-lg-6 col-12  bg-transparent border-0 text-white" >
             <div className="card-body">
                 <h5 className="card-title">{item.title}</h5>
                 <p className="card-text">{item.description}</p>

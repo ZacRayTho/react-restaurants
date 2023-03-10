@@ -1,35 +1,14 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+
 import Nav from "../components/Nav";
 import Food from "../components/Food";
 
 export default function Menu(props) {
 
-    const { cart, setCart, filter, setFilter } = props;
+    const { cart, setCart, filter, setFilter, food, setFood } = props;
+   
 
-    const [food, setFood] = useState([])
+
     
-
-
-    useEffect(
-        
-        
-        function apiCall() {
-            let options = {
-                baseURL: "https://www.jsonkeeper.com/b/MDXW",
-                params: {}
-            }
-            axios.get('/', options)
-                .then(function (response) {
-                    // console.log(response.data);
-                    setFood([...response.data])
-                })
-                .catch(function (error) {
-                    console.log("FAILURE HERE " + error);
-
-                })
-        }
-        , [])
 
 
 

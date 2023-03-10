@@ -4,14 +4,31 @@ import { useEffect, useState } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Checkout from "./pages/Checkout";
 import Cart from "./components/Cart";
+import Specials from "./pages/Specials";
+import axios from "axios";
 
 function App() {
-
+  const [food, setFood] = useState([])
   const [cart, setCart] = useState([])
   const [filter, setFilter] = useState("All")
 
-  //this function checks time and sets filter state to appropriate filter (breakfast, Lunch, dinner)
-  useEffect(function checkTime() {
+  function apiCall() {
+    let options = {
+      baseURL: "https://www.jsonkeeper.com/b/MDXW",
+      params: {}
+    }
+    axios.get('/', options)
+      .then(function (response) {
+        // console.log(response.data);
+        setFood([...response.data])
+      })
+      .catch(function (error) {
+        console.log("FAILURE HERE " + error);
+
+      })
+  }
+
+  function checkTime() {
     const time = new Date();
     const hour = time.getHours()
     console.log("useEffect in app")
@@ -26,7 +43,12 @@ function App() {
       default: setFilter("All")
         break;
     }
-    
+
+  }
+  //this function checks time and sets filter state to appropriate filter (breakfast, Lunch, dinner)
+  useEffect(() => {
+    checkTime(); 
+    apiCall();
   }, [])
 
   return (
@@ -43,12 +65,12 @@ function App() {
 
           <Route path="/menu" element={
             <div className="">
-              <Menu cart={cart} setCart={setCart} filter={filter} setFilter={setFilter} />
+              <Menu cart={cart} setCart={setCart} filter={filter} setFilter={setFilter} food={food} setFood={setFood} />
             </div>}></Route>
 
           <Route path="/specials" element={<>
             <div className="">
-              {/* insert page here */}
+              <Specials food={food} setFood={setFood} />
             </div>
           </>}></Route>
 

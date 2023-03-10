@@ -31,18 +31,18 @@ export default function Nav() {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className={"text-decoration-none"} to="/menu">
+                                <NavLink className={"text-decoration-none"} to="/specials">
                                     <button className="nav-link active bg-transparent border-0 " aria-current="page" >
                                         Specials
                                     </button>
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                {/* <NavLink className={"text-decoration-none"} to="/checkout"> */}
+                                <NavLink className={"text-decoration-none"} to="/checkout">
                                     <button className="nav-link active bg-transparent border-0 " aria-current="page" >
                                         Checkout
                                     </button>
-                                {/* </NavLink> */}
+                                </NavLink> 
                                 
                             </li>
                         </ul>

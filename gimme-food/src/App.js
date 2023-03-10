@@ -47,11 +47,16 @@ function App() {
   }
 
   function localCart() {
-    if (localStorage.getItem("cart") !== null || JSON.parse(localStorage.getItem("cart")).length === 0 ) {
-      return;
+    if (localStorage.getItem("cart") !== null) {
+      if (JSON.parse(localStorage.getItem("cart")).length === 0) {
+        return;
+      }
+      else {
+        setCart(JSON.parse(localStorage.getItem("cart")));
+        return;
+      }
     }
     else {
-      setCart(JSON.parse(localStorage.getItem("cart")));
       return;
     }
   }

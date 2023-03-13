@@ -33,7 +33,7 @@ export default function Menu(props) {
             <Nav />
 
             <div className="container bg-img2 w-75 d-flex justify-content-center row mx-auto">
-                <h1 className="text-center m-1" style={{ fontSize: "100px", color: "white", fontFamily: "chalk" }}>Menu</h1>
+                <h1 className="text-center m-1 " style={{ fontSize: "12vw", color: "white", fontFamily: "chalk" }}>Menu</h1>
                 <div className="text-center btn-group bg-white w-75 row">
                     <button className="col-auto btn btn-transparent" onClick={() => { handleClick("All") }}>All</button>
                     <button className="col-auto btn btn-transparent" onClick={() => { handleClick("Breakfast") }}>Breakfast</button>

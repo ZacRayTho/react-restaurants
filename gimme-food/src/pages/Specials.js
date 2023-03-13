@@ -61,7 +61,7 @@ export default function Specials(props) {
     return (
         <>
             <Nav />
-            <div>
+            <div className="overflow-auto">
                 <h1 className="text-center bg-white">This Week Specials!</h1>
                 <table className="table bg-white">
                     <thead>
